@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luas Persegi Panjang</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function hitungLuas() {
+            var panjang = parseFloat(document.getElementById('panjang').value);
+            var lebar = parseFloat(document.getElementById('lebar').value);
+            
+            if (isNaN(panjang) || isNaN(lebar)) {
+                alert("Masukkan nilai yang valid untuk panjang dan lebar.");
+                return;
+            }
+
+            var luas = panjang * lebar;
+            document.getElementById('hasil').innerText = "Luas Persegi Panjang adalah: " + luas.toFixed(2);
+        }
+    </script>
+    
+</head>
+<body>
+ 
+  
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Home   </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row justify-content-center">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="IMG_20240501_112856.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">JEFRI HIDAYAT</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+<div class="container mt-5">
+    <h2 class="text-center">Perhitungan Luas Persegi Panjang</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="panjang">Masukkan panjang:</label>
+                            <input type="number" class="form-control" id="panjang" step="any" placeholder="Panjang Persegi Panjang">
+                        </div>
+                        <div class="form-group">
+                            <label for="lebar">Masukkan lebar:</label>
+                            <input type="number" class="form-control" id="lebar" step="any" placeholder="Lebar Persegi Panjang">
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="hitungLuas()">Hitung Luas</button>
+                    </form>
+                    <div class="mt-3">
+                        <p id="hasil" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <div class="container col-md-6 mt-5 card" width="50%">
+    <h2 class="text-center ">Program Kasir Sederhana</h2>
+    <form>
+        <div class="form-group">
+            <label for="nomor">Nomor Barang:</label>
+            <input type="number" class="form-control" id="nomor" placeholder="Masukkan Nomor Barang">
+        </div>
+        <div class="form-group">
+            <label for="namaBarang">Nama Barang:</label>
+            <input type="text" class="form-control" id="namaBarang" placeholder="Masukkan Nama Barang">
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga Barang (Rp):</label>
+            <input type="number" class="form-control" id="harga" step="any" placeholder="Masukkan Harga Barang">
+        </div>
+        <div class="form-group">
+            <label for="banyak">Banyak Barang:</label>
+            <input type="number" class="form-control" id="banyak" placeholder="Masukkan Banyak Barang">
+        </div>
+        <button type="button" class="btn btn-primary btn-block" onclick="addItem()">Tambah Barang</button>
+    </form>
+
+    <h4 class="mt-5">Daftar Pembelian</h4>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Nomor Barang</th>
+                <th>Nama Barang</th>
+                <th>Harga (Rp)</th>
+                <th>Banyak</th>
+                <th>Subtotal (Rp)</th>
+            </tr>
+        </thead>
+        <tbody id="itemTable">
+            <!-- Items will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <div class="mt-3">
+        <p id="total" class="h4 text-center">Total Pembayaran: Rp 0.00</p>
+    </div>
+
+
+</div>
+<div class="">
+  <div class="container mt-5">
+    <h2 class="text-center">Kalkulator Sederhana</h2>
+    
+  <div class="container justify-content-center">
+    <form id="calculatorForm">
+      <div class="form-group">
+        <label for="angka1">Masukkan Angka Pertama</label>
+        <input type="number" class="form-control" id="angka1" placeholder="Angka pertama" required>
+      </div>
+      <div class="form-group">
+        <label for="angka2">Masukkan Angka Kedua</label>
+        <input type="number" class="form-control" id="angka2" placeholder="Angka kedua" required>
+      </div>
+      <div class="form-group">
+        <label for="operasi">Pilih Operasi</label>
+        <select class="form-control" id="operasi">
+          <option value="1">Penjumlahan (+)</option>
+          <option value="2">Pengurangan (-)</option>
+          <option value="3">Perkalian (*)</option>
+          <option value="4">Pembagian (/)</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Hitung</button>
+    </form>
+    <h3 class="mt-3" id="result">Hasil: </h3>
+  </div>
+</div>
+  
+
+
+
+<!-- Link to Bootstrap JS (optional, for interactive elements like modals or dropdowns) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  let total = 0; // Variable to store total payment
+
+  // Function to add item and calculate total
+  function addItem() {
+      let nomor = document.getElementById('nomor').value;
+      let namaBarang = document.getElementById('namaBarang').value;
+      let harga = parseFloat(document.getElementById('harga').value);
+      let banyak = parseInt(document.getElementById('banyak').value);
+
+      if (isNaN(harga) || isNaN(banyak)) {
+          alert("Masukkan harga dan banyak barang dengan benar.");
+          return;
+      }
+
+      let subTotal = harga * banyak;
+      total += subTotal;
+
+      // Display the result in the table
+      let table = document.getElementById('itemTable');
+      let row = table.insertRow();
+      row.insertCell(0).innerText = nomor;
+      row.insertCell(1).innerText = namaBarang;
+      row.insertCell(2).innerText = harga.toFixed(2);
+      row.insertCell(3).innerText = banyak;
+      row.insertCell(4).innerText = subTotal.toFixed(2);
+
+      // Clear input fields for the next item
+      document.getElementById('nomor').value = '';
+      document.getElementById('namaBarang').value = '';
+      document.getElementById('harga').value = '';
+      document.getElementById('banyak').value = '';
+      
+      // Update the total
+      document.getElementById('total').innerText = 'Total Pembayaran: Rp ' + total.toFixed(2);
+    }
+      // <!-- Bootstrap JS and dependencies -->
+  // <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function calculate() {
+      // Get values from input fields
+      var angka1 = parseFloat(document.getElementById("angka1").value);
+      var angka2 = parseFloat(document.getElementById("angka2").value);
+      var operasi = document.getElementById("operasi").value;
+      var result = document.getElementById("result");
+
+      var hasil;
+
+      // Perform the operation based on the selection
+      switch(operasi) {
+        case "1":
+          hasil = angka1 + angka2;
+          break;
+        case "2":
+          hasil = angka1 - angka2;
+          break;
+        case "3":
+          hasil = angka1 * angka2;
+          break;
+        case "4":
+          if (angka2 !== 0) {
+            hasil = angka1 / angka2;
+          } else {
+            result.innerHTML = "Error: Pembagian dengan nol.";
+            return;
+          }
+          
+          break;
+        default:
+          result.innerHTML = "Pilihan tidak valid.";
+          return;
+      }
+
+      // Display the result
+      result.innerHTML = "Hasil: " + hasil.toFixed(2);
+    }
+    
+  </script>  
