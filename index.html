@@ -24,6 +24,8 @@
 </head>
 <body>
  
+</style>
+ 
   
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -168,7 +170,92 @@
   </div>
 </div>
   
+  
+<style>
+  /* Styling untuk kipas angin */
+  .fan-container {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+  }
 
+  /* Gaya untuk bilah kipas */
+  .fan-blade {
+    width: 20px;
+    height: 80px;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    transition: transform 0.1s ease-in-out;
+  }
+
+  .fan-blade:nth-child(1) { transform: rotate(0deg); }
+  .fan-blade:nth-child(2) { transform: rotate(90deg); }
+  .fan-blade:nth-child(3) { transform: rotate(180deg); }
+  .fan-blade:nth-child(4) { transform: rotate(270deg); }
+
+  /* Animasi untuk kipas angin berputar */
+  .spin {
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Styling tombol */
+  .btn-toggle {
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<div class="container text-center pt-5">
+  <h1>Simulasi Kipas Angin</h1>
+  
+  <!-- Kontainer kipas angin -->
+  <div class="fan-container mt-4">
+    <div class="fan-blade"></div>
+    <div class="fan-blade"></div>
+    <div class="fan-blade"></div>
+    <div class="fan-blade"></div>
+  </div>
+  
+  <!-- Tombol untuk menghidupkan/mematikan kipas -->
+  <button class="btn btn-primary btn-toggle" onclick="toggleFan()">Nyalakan Kipas</button>
+</div>
+
+<!-- Menambahkan JS (untuk fungsionalitas) -->
+<script>
+  let fanIsOn = false;
+  const fanBlades = document.querySelectorAll('.fan-blade');
+  const fanButton = document.querySelector('.btn-toggle');
+
+  function toggleFan() {
+    if (fanIsOn) {
+      // Matikan kipas
+      fanBlades.forEach(blade => blade.classList.remove('spin'));
+      fanButton.innerText = 'Nyalakan Kipas';
+    } else {
+      // Nyalakan kipas
+      fanBlades.forEach(blade => blade.classList.add('spin'));
+      fanButton.innerText = 'Matikan Kipas';
+    }
+    fanIsOn = !fanIsOn;
+  }
+</script>
+
+<!-- Menambahkan Bootstrap JS dan jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 <!-- Link to Bootstrap JS (optional, for interactive elements like modals or dropdowns) -->
@@ -254,4 +341,7 @@
       result.innerHTML = "Hasil: " + hasil.toFixed(2);
     }
     
-  </script>  
+  </script> 
+   <script src="script.js"></script>
+  </body>
+  

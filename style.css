@@ -1,0 +1,42 @@
+/* Styling untuk kipas angin */
+.fan-container {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+  }
+  
+  /* Gaya untuk bilah kipas */
+  .fan-blade {
+    width: 20px;
+    height: 80px;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  .fan-blade:nth-child(1) { transform: rotate(0deg); }
+  .fan-blade:nth-child(2) { transform: rotate(90deg); }
+  .fan-blade:nth-child(3) { transform: rotate(180deg); }
+  .fan-blade:nth-child(4) { transform: rotate(270deg); }
+  
+  /* Animasi untuk kipas angin berputar */
+  .spin {
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Styling tombol */
+  .btn-toggle {
+    margin-top: 20px;
+  }
+  
