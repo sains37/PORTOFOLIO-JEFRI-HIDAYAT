@@ -170,7 +170,44 @@
   </div>
 </div>
   
-  
+<style>
+  /* Styling untuk lampu */
+  .lampu {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px;
+    background-color: #ccc; /* Lampu mati */
+    transition: background-color 0.3s ease;
+  }
+
+  .on {
+    background-color: #ffcc00; /* Lampu menyala */
+  }
+
+  .off {
+    background-color: #ccc; /* Lampu mati */
+  }
+
+  /* Styling untuk tombol ON/OFF */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .btn-toggle {
+    margin: 0 10px;
+  }
+
+  /* Mengatur tampilan stop kontak */
+  .stop-kontak {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+</style> 
 <style>
   /* Styling untuk kipas angin */
   .fan-container {
@@ -215,7 +252,6 @@
     margin-top: 20px;
   }
 </style>
-</head>
 
 <div class="container text-center pt-5">
   <h1>Simulasi Kipas Angin</h1>
@@ -230,6 +266,28 @@
   
   <!-- Tombol untuk menghidupkan/mematikan kipas -->
   <button class="btn btn-primary btn-toggle" onclick="toggleFan()">Nyalakan Kipas</button>
+</div>
+
+  
+  
+</div>
+<div class="container">
+  <h1 class="text-center mt-5">Stop Kontak 5 Lampu</h1>
+  
+  <div class="stop-kontak">
+    <!-- 5 Lampu dengan class lampu -->
+    <div id="lampu1" class="lampu off"></div>
+    <div id="lampu2" class="lampu off"></div>
+    <div id="lampu3" class="lampu off"></div>
+    <div id="lampu4" class="lampu off"></div>
+    <div id="lampu5" class="lampu off"></div>
+  </div>
+
+  <div class="button-container">
+    <!-- Tombol ON/OFF -->
+    <button class="btn btn-success btn-toggle" onclick="toggleLamps('on')">Nyalakan Semua Lampu</button>
+    <button class="btn btn-danger btn-toggle" onclick="toggleLamps('off')">Matikan Semua Lampu</button>
+  </div>
 </div>
 
 <!-- Menambahkan JS (untuk fungsionalitas) -->
@@ -342,6 +400,23 @@
     }
     
   </script> 
+   <script>
+    // Fungsi untuk menyalakan/mematikan lampu
+    function toggleLamps(action) {
+      // Mendapatkan semua elemen lampu
+      for (let i = 1; i <= 5; i++) {
+        const lampu = document.getElementById('lampu' + i);
+
+        if (action === 'on') {
+          lampu.classList.remove('off');
+          lampu.classList.add('on');
+        } else if (action === 'off') {
+          lampu.classList.remove('on');
+          lampu.classList.add('off');
+        }
+      }
+    }
+  </script>
    <script src="script.js"></script>
   </body>
   
